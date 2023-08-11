@@ -6,6 +6,8 @@ const fs = require("fs");
 function generate(suffix: string, max_attempts: number){
     let attempts = 0;
     let is_running = true;
+    const start_time = Date.now();
+    console.log(`Started generating at unix ${start_time}...`);
     while (is_running){
         // generate new keypair
         const k = Keys.Ed25519.new();
@@ -19,6 +21,7 @@ function generate(suffix: string, max_attempts: number){
                 }
             });
             console.log("YAY! Key found: ", k.publicKey.toHex());
+            console.log("Elapsed time (ms): ", Date.now() - start_time);
             // exit
             is_running = false;
         }
@@ -63,7 +66,7 @@ function estimateTimeSingle(attempts: number, suffix:string){
 // estimation entry point
 function estimate(attempts: number, suffix: string){
     const _estimateAttempts = estimateAttempts(suffix);
-    const _estimateTime = estimateTimeSingle(10000, suffix);
+    const _estimateTime = estimateTimeSingle(attempts, suffix);
     const _expectedRuntime = _estimateTime * _estimateAttempts;
     return {
         "time": _expectedRuntime,
@@ -77,13 +80,22 @@ function entryPoint(){
     let publicSuffix = args['publicSuffix'];
     let generatorLimit = args['generatorLimit'];
     let action = args['entryPoint'];
+    // check suffix validity
+    const valid = "0123456789abcdef";
+    for (const letter of publicSuffix){
+        if (!valid.includes(letter)){
+            console.log("Invalid input, only HEX is accepted!");
+            return;
+        }
+    }
+
     if (action == 'generate'){
         generate(publicSuffix, generatorLimit);
     }
     else if (action == 'estimate'){
         let estimation = estimate(generatorLimit, publicSuffix);
         let estimationTimeInHours = estimation.time / 1000 / 60 / 60;
-        console.log(`To generate a Public Key that ends with "${publicSuffix}" will take an est. of ${estimation.attempts} attempts and ${estimationTimeInHours} hours (or ${estimationTimeInHours * 60} minutes) on your machine! Only run the generator if this sound feasible.`);
+        console.log(`\n To generate a Public Key that ends with "${publicSuffix}" will take an average of ${estimation.attempts} attempts and ${estimationTimeInHours} hours (or ${estimation.time} ms) on your machine! \n Ok!: If this sounds feasible, run $ ts-node generator.ts -ep generate -suffix ${publicSuffix} -limit ${estimation.attempts * 2} \n`);
     }
 }
 
