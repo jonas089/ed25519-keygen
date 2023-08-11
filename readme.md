@@ -22,6 +22,7 @@ ts-node generator.ts -ep estimate -suffix YOUR_SUFFIX_MAX_LEN_64_DIGITS -limit L
 
 ```
 The greater the LIMIT_FOR_TEST_CASE, the more accurate the prediction becomes. Outliers are expected.
+
 ## Generate your key with limit
 
 ```
@@ -45,3 +46,26 @@ jonass-macbook-air:KeyGenerator chef$
 
 ```
 The dump of the corresponding private key is now located in output.pem
+
+## Tweaking
+
+Should the estimates be way off it's possible to change the LIMIT_MULTIPLIER in `constants.ts` (or just manually increase the limit when generating).
+
+## Estimates
+
+The estimate is an average and outliers can be extreme:
+
+```
+1st attempt:
+
+jonass-macbook-air:KeyGenerator chef$ ts-node generator.ts -ep generate -suffix ffff  -limit 1000000
+YAY! Key found:  014006d7EA7812dE15E14e7Ea4D6ff6bf42dacb0d456B7beb1C45026edF52effff
+Elapsed time (ms):  10322
+
+2nd attempt:
+
+jonass-macbook-air:KeyGenerator chef$ ts-node generator.ts -ep generate -suffix ffff  -limit 1000000
+Started generating at unix 1691785264592...
+BOO! Failed to generate Key, exceeded limit:  1000000
+
+```

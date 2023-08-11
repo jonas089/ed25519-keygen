@@ -1,0 +1,1 @@
+export const LIMIT_MULTIPLIER: number = 10;
