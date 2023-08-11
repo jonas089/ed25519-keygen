@@ -1,0 +1,15 @@
+{
+  "name": "ed25519keygen",
+  "version": "1.0.0",
+  "description": "key generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "casper-js-sdk": "^2.15.2",
+    "commander": "^11.0.0"
+  }
+}
