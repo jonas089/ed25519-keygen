@@ -64,7 +64,7 @@ function estimateTimeSingle(attempts: number, suffix:string){
 function estimate(attempts: number, suffix: string){
     const _estimateAttempts = estimateAttempts(suffix);
     const _estimateTime = estimateTimeSingle(10000, suffix);
-    const _expectedRuntime = _estimateTime * attempts;
+    const _expectedRuntime = _estimateTime * _estimateAttempts;
     return {
         "time": _expectedRuntime,
         "attempts": _estimateAttempts
