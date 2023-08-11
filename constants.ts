@@ -1,1 +1,1 @@
-export const LIMIT_MULTIPLIER: number = 10;
+export const LIMIT_MULTIPLIER: number = 30;
