@@ -32,9 +32,16 @@ ts-node generator.ts -ep generate -suffix YOUR_SUFFIX_MAX_LEN_64_DIGITS -limit M
 
 ```
 
+jonass-macbook-air:KeyGenerator chef$ ts-node generator.ts -ep estimate -suffix ffff -limit 20000
 
+ To generate a Public Key that ends with "ffff" will take an average of 65536 attempts and 0.0030046435555555555 hours (or 10816.7168 ms) on your machine! 
+ Ok!: If this sounds feasible, run $ ts-node generator.ts -ep generate -suffix ffff -limit 131072 
 
-
-
+jonass-macbook-air:KeyGenerator chef$ ts-node generator.ts -ep generate -suffix ffff  -limit 131072
+Started generating at unix 1691784223798...
+YAY! Key found:  *0105aBC8f42199198CeAC5325b5E03d275e230F052E1BA47d3CfFD3c9c600fffff*
+Elapsed time (ms):  12462
+jonass-macbook-air:KeyGenerator chef$ 
 
 ```
+The dump of the corresponding private key is now located in output.pem
