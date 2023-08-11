@@ -69,3 +69,5 @@ Started generating at unix 1691785264592...
 BOO! Failed to generate Key, exceeded limit:  1000000
 
 ```
+
+Time complexity: O(1/(1/16^n))
