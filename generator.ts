@@ -83,7 +83,7 @@ function entryPoint(){
     else if (action == 'estimate'){
         let estimation = estimate(generatorLimit, publicSuffix);
         let estimationTimeInHours = estimation.time / 1000 / 60 / 60;
-        console.log(`To generate a Public Key that ends with "${publicSuffix}" will take an est. of ${estimation.attempts} attempts and ${estimationTimeInHours} hours on your machine! Only run the generator if this sound feasible.`);
+        console.log(`To generate a Public Key that ends with "${publicSuffix}" will take an est. of ${estimation.attempts} attempts and ${estimationTimeInHours} hours (or ${estimationTimeInHours * 60} minutes) on your machine! Only run the generator if this sound feasible.`);
     }
 }
 
