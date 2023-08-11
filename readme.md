@@ -1,17 +1,19 @@
 # Rare key generator for Ed25519
 
 ## Hex
-We're generating hex keys here. Hex keys are composed of integers 0-9 and letters a-f. 
+This script is generating hex keys! 
+
+Hex keys are composed of integers 0-9 and letters a-f. 
 
 Because of this, it's not possible to generate a key that ends with "house" or other words/phrases that include letters outside the scope(a-f).
 
-Possible: any combination of 0123456789abcdef (can reoccur).
+Possible: any combination of *0123456789abcdef* (can reoccur).
 
 Brute forcing is expensive, don't use suffixes that are crazy long. 
 
 Suffixes exceeding 7-8 digits will take a *very* long time to generate on average machines.
 
-On an M2 Macbook Air (2022), generating a 7 digit key will take an est. of 12 hours.
+On an *M2 Macbook Air* (2022), generating a *7 digit* key will take an est. of *12 hours*.
 
 ## Estimate the complexity of your key
 
