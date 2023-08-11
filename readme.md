@@ -70,4 +70,4 @@ BOO! Failed to generate Key, exceeded limit:  1000000
 
 ```
 
-Time complexity: O(1/(1/16^n))
+Time complexity: O(1/(1/16^n)) = O(16^n)
