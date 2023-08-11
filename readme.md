@@ -40,7 +40,7 @@ jonass-macbook-air:KeyGenerator chef$ ts-node entry_point.ts -ep estimate -suffi
 
 jonass-macbook-air:KeyGenerator chef$ ts-node entry_point.ts -ep generate -suffix ffff  -limit 131072
 Started generating at unix 1691784223798...
-YAY! Key found:  *0105aBC8f42199198CeAC5325b5E03d275e230F052E1BA47d3CfFD3c9c600fffff*
+YAY! Key found:  0105aBC8f42199198CeAC5325b5E03d275e230F052E1BA47d3CfFD3c9c600fffff
 Elapsed time (ms):  12462
 jonass-macbook-air:KeyGenerator chef$ 
 
